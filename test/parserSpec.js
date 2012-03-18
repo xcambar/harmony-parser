@@ -3,8 +3,6 @@
  * ========
  *  
  *  * Multiple declarations
- *  * Exports
- *  * moduleBody
  */
 
 var parser = require('../shepherd_parser.js');
