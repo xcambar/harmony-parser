@@ -1,5 +1,5 @@
 /* Jison generated parser */
-var shepherd_parser = (function(){
+var harmony_parser = (function(){
 var parser = {trace: function trace() { },
 yy: {},
 symbols_: {"error":2,"Program":3,"EOF":4,"ProgramElement":5,"ModuleDeclaration":6,"ImportDeclaration":7,"ExportDeclaration":8,"ModuleSpecifier":9,"Path":10,"String":11,"module":12,"Id":13,"at":14,"SEMICOLON":15,"IS":16,"ImportSource":17,"OPEN_BRACE":18,"ModuleBody":19,"CLOSE_BRACE":20,"from":21,"import":22,"ImportSpecifierSet":23,"WILDCARD":24,"ImportSpecifier":25,"ImportSpecifierNext":26,"COMMA":27,"COLON":28,"export":29,"ExportSpecifierSet":30,"ExportSpecifierSetNext":31,"ExportSpecifier":32,"ExportSpecifierNext":33,"ModuleElement":34,"PERIOD":35,"$accept":0,"$end":1},
@@ -452,8 +452,8 @@ parser.lexer = lexer;
 return parser;
 })();
 if (typeof require !== 'undefined' && typeof exports !== 'undefined') {
-exports.parser = shepherd_parser;
-exports.parse = function () { return shepherd_parser.parse.apply(shepherd_parser, arguments); }
+exports.parser = harmony_parser;
+exports.parse = function () { return harmony_parser.parse.apply(harmony_parser, arguments); }
 exports.main = function commonjsMain(args) {
     if (!args[1])
         throw new Error('Usage: '+args[0]+' FILE');

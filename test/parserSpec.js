@@ -5,7 +5,7 @@
  *  * Multiple declarations
  */
 
-var parser = require('../shepherd_parser.js');
+var parser = require('../harmony_parser.js');
 
 describe ('ECMAScript:Harmony module definition parser', function () {
     it('should accept null requests', function () {
