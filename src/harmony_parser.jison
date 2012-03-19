@@ -73,8 +73,8 @@
 ","                         return 'COMMA';
 "."                         return 'PERIOD';
 [a-zA-Z_$][0-9a-zA-Z_$]*    return "Id";
-\'.+\'                      return "String";
-\".+\"                      return "String";
+\'[^\']+\'                  return "String";
+\"[^\"]+\"                  return "String";
 <<EOF>>                     return 'EOF';
 
 /lex

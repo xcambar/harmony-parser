@@ -445,7 +445,7 @@ case 19:return 4;
 break;
 }
 };
-lexer.rules = [/^\n+/,/^\s+/,/^\t+/,/^;/,/^:/,/^\{/,/^\}/,/^module\b/,/^import\b/,/^export\b/,/^at\b/,/^is\b/,/^from\b/,/^\*/,/^,/,/^\./,/^[a-zA-Z_$][0-9a-zA-Z_$]*/,/^'.+'/,/^".+"/,/^$/];
+lexer.rules = [/^\n+/,/^\s+/,/^\t+/,/^;/,/^:/,/^\{/,/^\}/,/^module\b/,/^import\b/,/^export\b/,/^at\b/,/^is\b/,/^from\b/,/^\*/,/^,/,/^\./,/^[a-zA-Z_$][0-9a-zA-Z_$]*/,/^'[^\']+'/,/^"[^\"]+"/,/^$/];
 lexer.conditions = {"INITIAL":{"rules":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19],"inclusive":true}};
 return lexer;})()
 parser.lexer = lexer;

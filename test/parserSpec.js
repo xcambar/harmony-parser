@@ -141,5 +141,13 @@ describe ('export definition parser', function () {
         expect(parser.parse('module myMod {import a from b.c; export Z;}').decl.expressions[0].decl.from).toEqual({type: 'module', path: 'b.c'});
         expect(parser.parse('module myMod {import a from b.c; export Z;}').decl.expressions[1].type).toEqual('export');
         expect(parser.parse('module myMod {import a from b.c; export Z;}').decl.expressions[1].decl).toEqual(['Z']);
-    })
+    });
+});
+
+describe('parsing modules with complex bodies', function () {
+    it('should be able to split bodies with multiple import from URi', function () {
+        var decl = "module app {import jQuery from '../libs/jquery-1.7.1.min.js';import rebound from './animation.js';import gear from './gear.js';}";
+        expect(parser.parse(decl).decl).not.toBe(null);
+        expect(parser.parse(decl).decl.expressions.length).toBe(3);
+    });
 });
