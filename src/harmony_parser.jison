@@ -10,7 +10,7 @@
    
    
    
-   Grammer parsed (up to date by the 200120208 from http://wiki.ecmascript.org/doku.php?id=harmony:modules)
+   Grammar parsed (up to date by the 200120208 from http://wiki.ecmascript.org/doku.php?id=harmony:modules)
    ========================================================================================================
    
    Program        ::= ProgramElement*
@@ -83,19 +83,26 @@
 %%
   
 Program
-  : EOF
-    { return {}}
-  | ProgramElement EOF
-    {return $1}
+  : ProgramNext
+    {return $1;}
   ;
-  
+
+ProgramNext
+  : ProgramElement
+    {$$ = $1}
+  | ProgramElement ProgramNext
+    {$$ = ($2.length ? $1.concat($2) : $1);}
+  ;
+
 ProgramElement
   : ModuleDeclaration
-    {$$ = {type: 'module', decl: $1};}
+    {$$ = [{type: 'module', decl: $1}];}
   | ImportDeclaration
-    {$$ = {type: 'import', decl: $1};}
+    {$$ = [{type: 'import', decl: $1}];}
   | ExportDeclaration
-    {$$ = {type: 'export', decl: $1};}
+    {$$ = [{type: 'export', decl: $1}];}
+  | EOF
+    {$$ = []}
   ;
   
 ModuleSpecifier
