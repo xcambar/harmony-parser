@@ -15,7 +15,7 @@ describe ('ECMAScript:Harmony module definition parser', function () {
     it('should accept module reference', function () {
         expect(parser.parse('module M at "http://code.jquery.com/latest.js";')[0].type).toBe('module');
         expect(parser.parse('module M at "http://code.jquery.com/latest.js";')[0].decl.id).toBe('M');
-        expect(parser.parse('module M at "http://code.jquery.com/latest.js";')[0].decl.path).toBe('"http://code.jquery.com/latest.js"');
+        expect(parser.parse('module M at "http://code.jquery.com/latest.js";')[0].decl.path).toBe('http://code.jquery.com/latest.js');
     });
     
     it('should accept local renaming', function () {

@@ -109,12 +109,12 @@ ModuleSpecifier
   : Path
     {$$ = {type: 'module', path: $1}}
   | String
-    {$$ = {type: 'uri', path: $1.replace(/^['"]/, '').replace(/['"]$/, '')}}
+    {$$ = {type: 'uri', path: $1.trim().replace(/^(['"])(.*)\1$/, function (str, m1, m2, m3) { return m2;})}}
   ;
   
 ModuleDeclaration
   : module Id at String SEMICOLON
-    {$$ = {id: $2, path: $4}}
+    {$$ = {id: $2, path: $4.trim().replace(/^(['"])(.*)\1$/, function (str, m1, m2, m3) { return m2;})}}
   | module Id IS ImportSource SEMICOLON
     {$$ = {id: $2, src: $4}}
   | module Id OPEN_BRACE ModuleBody CLOSE_BRACE

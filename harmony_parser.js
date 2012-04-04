@@ -25,9 +25,9 @@ case 7:this.$ = []
 break;
 case 8:this.$ = {type: 'module', path: $$[$0]}
 break;
-case 9:this.$ = {type: 'uri', path: $$[$0].replace(/^['"]/, '').replace(/['"]$/, '')}
+case 9:this.$ = {type: 'uri', path: $$[$0].trim().replace(/^(['"])(.*)\1$/, function (str, m1, m2, m3) { return m2;})}
 break;
-case 10:this.$ = {id: $$[$0-3], path: $$[$0-1]}
+case 10:this.$ = {id: $$[$0-3], path: $$[$0-1].trim().replace(/^(['"])(.*)\1$/, function (str, m1, m2, m3) { return m2;})}
 break;
 case 11:this.$ = {id: $$[$0-3], src: $$[$0-1]}
 break;
